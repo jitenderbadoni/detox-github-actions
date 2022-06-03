@@ -5,7 +5,7 @@ on: [workflow_dispatch]
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
     - name: Checkout
@@ -33,9 +33,9 @@ jobs:
       run: |
         npm install
     
-    - name: Build RN App
+    - name: Start RN Packager
       run: |
-        npm run android
+        npx react-native start &> android_packager.log &
 
     - name: Build detox
       run: |
