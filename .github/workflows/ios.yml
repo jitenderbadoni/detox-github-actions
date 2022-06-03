@@ -23,6 +23,10 @@ jobs:
       run: |
         npm install
 
+    - name: Pod Install
+      run: |
+        cd ios && pod install && cd ..
+
     - name: Build App Detox
       run: |
         brew tap wix/brew
