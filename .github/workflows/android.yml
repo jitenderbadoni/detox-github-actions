@@ -28,7 +28,7 @@ jobs:
         echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-29;google_apis;x86"
         echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd --force -n TestEmulator -d pixel --package 'system-images;android-29;google_apis;x86'
         $ANDROID_HOME/emulator/emulator -list-avds
-        
+
     - name: Install node_modules
       run: |
         npm install
@@ -37,8 +37,9 @@ jobs:
       run: |
         npm run android
 
-    - name: Android Detox
+    - name: Android Run Detox
       run: |
+        npx detox build -c android
         npx detox test -c android
 
     - name: Store Detox artifacts on test failure
