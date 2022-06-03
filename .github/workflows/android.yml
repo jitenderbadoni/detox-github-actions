@@ -45,15 +45,8 @@ jobs:
       run: |
         npx detox test --record-videos all --take-screenshots all -c android
 
-    - name: Store Detox artifacts on test failure
-      uses: actions/upload-artifact@v3
-      if: failure()
-      with:
-        name: detox-artifacts
-        path: artifacts # Default path for Detox artifacts
-
     - name: Upload Test Artifact - GitHub Action
-        uses: actions/upload-artifact@v2
-        with: 
-          name: artifacts
-          path: downloads
+      uses: actions/upload-artifact@v2
+      with: 
+        name: artifacts
+        path: downloads
