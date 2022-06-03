@@ -25,7 +25,7 @@
     "emulator": {
       "type": "android.emulator",
       "device": {
-        "avdName": "emu"
+        "avdName": "TestEmulator"
       }
     }
   },

@@ -1,6 +1,6 @@
 name: iOS
 
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   build:
@@ -29,10 +29,6 @@ jobs:
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm install
-
-    - name: Update Pods
-      run: |
-        cd ios && pod install && cd ..
 
     - name: Build App Detox
       run: |
