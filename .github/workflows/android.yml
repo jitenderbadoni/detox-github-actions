@@ -33,13 +33,16 @@ jobs:
       run: |
         npm install
     
-    - name: Build App detox
+    - name: Build RN App
       run: |
         npm run android
 
-    - name: Android Run Detox
+    - name: Build detox
       run: |
         npx detox build -c android
+
+    - name: Android Run Detox
+      run: |
         npx detox test -c android
 
     - name: Store Detox artifacts on test failure
