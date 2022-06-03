@@ -46,6 +46,7 @@ jobs:
         npx detox test --record-videos all --take-screenshots all -c android
 
     - name: Upload Test Artifact - GitHub Action
+      if: always()
       uses: actions/upload-artifact@v2
       with: 
         name: artifacts
