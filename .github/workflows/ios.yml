@@ -32,10 +32,17 @@ jobs:
         brew tap wix/brew
         brew install applesimutils
 
-    - name: Build App Detox
+    - name: Start RN Packager
       run: |
-        npx react-native run-ios
+        npx react-native start &> ios_packager.log &
 
     - name: Run Detox tests
       run: |
         npx detox test -c ios
+
+    - name: Upload Test Artifact - GitHub Action
+      if: always()
+      uses: actions/upload-artifact@v2
+      with: 
+        name: artifacts
+        path: artifacts
