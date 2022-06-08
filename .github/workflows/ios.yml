@@ -38,7 +38,7 @@ jobs:
 
     - name: Run Detox tests
       run: |
-        npx detox test -c ios
+        npx detox test --record-videos all --take-screenshots all -c ios
 
     - name: Upload Test Artifact - GitHub Action
       if: always()
